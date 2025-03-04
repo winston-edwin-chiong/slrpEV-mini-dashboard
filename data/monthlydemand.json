@@ -1,0 +1,346 @@
+[
+  {
+    "time": "2020-11-30",
+    "avg_power_demand_kW": 0.3133144525944037,
+    "energy_demand_kWh": 192.21841666666666,
+    "peak_power_kW": 11.711,
+    "day": "Thursday",
+    "month": "November"
+  },
+  {
+    "time": "2020-12-31",
+    "avg_power_demand_kW": 0.3996647625448029,
+    "energy_demand_kWh": 297.3505833333333,
+    "peak_power_kW": 13.165,
+    "day": "Tuesday",
+    "month": "December"
+  },
+  {
+    "time": "2021-01-31",
+    "avg_power_demand_kW": 0.5507122535842294,
+    "energy_demand_kWh": 409.72991666666667,
+    "peak_power_kW": 13.7,
+    "day": "Friday",
+    "month": "January"
+  },
+  {
+    "time": "2021-02-28",
+    "avg_power_demand_kW": 0.5652399553571429,
+    "energy_demand_kWh": 379.84125,
+    "peak_power_kW": 11.965,
+    "day": "Monday",
+    "month": "February"
+  },
+  {
+    "time": "2021-03-31",
+    "avg_power_demand_kW": 1.147497311827957,
+    "energy_demand_kWh": 853.7379999999999,
+    "peak_power_kW": 20.585,
+    "day": "Monday",
+    "month": "March"
+  },
+  {
+    "time": "2021-04-30",
+    "avg_power_demand_kW": 2.053974652777778,
+    "energy_demand_kWh": 1478.86175,
+    "peak_power_kW": 23.997,
+    "day": "Thursday",
+    "month": "April"
+  },
+  {
+    "time": "2021-05-31",
+    "avg_power_demand_kW": 1.5722074372759856,
+    "energy_demand_kWh": 1169.7223333333334,
+    "peak_power_kW": 20.741,
+    "day": "Saturday",
+    "month": "May"
+  },
+  {
+    "time": "2021-06-30",
+    "avg_power_demand_kW": 2.2601498842592593,
+    "energy_demand_kWh": 1627.3079166666666,
+    "peak_power_kW": 30.899,
+    "day": "Tuesday",
+    "month": "June"
+  },
+  {
+    "time": "2021-07-31",
+    "avg_power_demand_kW": 2.211346998207885,
+    "energy_demand_kWh": 1645.2421666666667,
+    "peak_power_kW": 24.296,
+    "day": "Thursday",
+    "month": "July"
+  },
+  {
+    "time": "2021-08-31",
+    "avg_power_demand_kW": 2.6471263440860215,
+    "energy_demand_kWh": 1969.462,
+    "peak_power_kW": 26.317,
+    "day": "Sunday",
+    "month": "August"
+  },
+  {
+    "time": "2021-09-30",
+    "avg_power_demand_kW": 3.78562037037037,
+    "energy_demand_kWh": 2725.6466666666665,
+    "peak_power_kW": 39.245,
+    "day": "Wednesday",
+    "month": "September"
+  },
+  {
+    "time": "2021-10-31",
+    "avg_power_demand_kW": 3.3619730062724016,
+    "energy_demand_kWh": 2501.3079166666666,
+    "peak_power_kW": 38.615,
+    "day": "Friday",
+    "month": "October"
+  },
+  {
+    "time": "2021-11-30",
+    "avg_power_demand_kW": 3.5330285879629626,
+    "energy_demand_kWh": 2543.780583333333,
+    "peak_power_kW": 30.314,
+    "day": "Monday",
+    "month": "November"
+  },
+  {
+    "time": "2021-12-31",
+    "avg_power_demand_kW": 3.2475228494623654,
+    "energy_demand_kWh": 2416.157,
+    "peak_power_kW": 30.067,
+    "day": "Wednesday",
+    "month": "December"
+  },
+  {
+    "time": "2022-01-31",
+    "avg_power_demand_kW": 2.3424317876344087,
+    "energy_demand_kWh": 1742.76925,
+    "peak_power_kW": 25.209,
+    "day": "Saturday",
+    "month": "January"
+  },
+  {
+    "time": "2022-02-28",
+    "avg_power_demand_kW": 2.8322103174603175,
+    "energy_demand_kWh": 1903.2453333333333,
+    "peak_power_kW": 28.734,
+    "day": "Tuesday",
+    "month": "February"
+  },
+  {
+    "time": "2022-03-31",
+    "avg_power_demand_kW": 2.9049130824372758,
+    "energy_demand_kWh": 2161.2553333333335,
+    "peak_power_kW": 29.689,
+    "day": "Tuesday",
+    "month": "March"
+  },
+  {
+    "time": "2022-04-30",
+    "avg_power_demand_kW": 1.9283423611111112,
+    "energy_demand_kWh": 1388.4065,
+    "peak_power_kW": 23.893,
+    "day": "Friday",
+    "month": "April"
+  },
+  {
+    "time": "2022-05-31",
+    "avg_power_demand_kW": 2.8637066532258064,
+    "energy_demand_kWh": 2130.59775,
+    "peak_power_kW": 33.595,
+    "day": "Sunday",
+    "month": "May"
+  },
+  {
+    "time": "2022-06-30",
+    "avg_power_demand_kW": 3.2169532407407404,
+    "energy_demand_kWh": 2316.2063333333335,
+    "peak_power_kW": 27.1,
+    "day": "Wednesday",
+    "month": "June"
+  },
+  {
+    "time": "2022-07-31",
+    "avg_power_demand_kW": 3.167461693548387,
+    "energy_demand_kWh": 2356.5915,
+    "peak_power_kW": 25.734,
+    "day": "Friday",
+    "month": "July"
+  },
+  {
+    "time": "2022-08-31",
+    "avg_power_demand_kW": 3.4691995967741933,
+    "energy_demand_kWh": 2581.0845,
+    "peak_power_kW": 40.424,
+    "day": "Monday",
+    "month": "August"
+  },
+  {
+    "time": "2022-09-30",
+    "avg_power_demand_kW": 2.689128935185185,
+    "energy_demand_kWh": 1936.1728333333333,
+    "peak_power_kW": 35.127,
+    "day": "Thursday",
+    "month": "September"
+  },
+  {
+    "time": "2022-10-31",
+    "avg_power_demand_kW": 3.2207305107526882,
+    "energy_demand_kWh": 2396.2235,
+    "peak_power_kW": 32.547,
+    "day": "Saturday",
+    "month": "October"
+  },
+  {
+    "time": "2022-11-30",
+    "avg_power_demand_kW": 2.9115456018518517,
+    "energy_demand_kWh": 2096.3128333333334,
+    "peak_power_kW": 24.877,
+    "day": "Tuesday",
+    "month": "November"
+  },
+  {
+    "time": "2022-12-31",
+    "avg_power_demand_kW": 2.4471334005376346,
+    "energy_demand_kWh": 1820.66725,
+    "peak_power_kW": 30.403,
+    "day": "Thursday",
+    "month": "December"
+  },
+  {
+    "time": "2023-01-31",
+    "avg_power_demand_kW": 4.37991857078853,
+    "energy_demand_kWh": 3258.659416666667,
+    "peak_power_kW": 36.146,
+    "day": "Sunday",
+    "month": "January"
+  },
+  {
+    "time": "2023-02-28",
+    "avg_power_demand_kW": 5.433389756944445,
+    "energy_demand_kWh": 3651.2379166666665,
+    "peak_power_kW": 35.686,
+    "day": "Wednesday",
+    "month": "February"
+  },
+  {
+    "time": "2023-03-31",
+    "avg_power_demand_kW": 4.321056563620072,
+    "energy_demand_kWh": 3214.8660833333333,
+    "peak_power_kW": 36.628,
+    "day": "Wednesday",
+    "month": "March"
+  },
+  {
+    "time": "2023-04-30",
+    "avg_power_demand_kW": 3.885602430555556,
+    "energy_demand_kWh": 2797.63375,
+    "peak_power_kW": 32.978,
+    "day": "Saturday",
+    "month": "April"
+  },
+  {
+    "time": "2023-05-31",
+    "avg_power_demand_kW": 3.41286267921147,
+    "energy_demand_kWh": 2539.1698333333334,
+    "peak_power_kW": 30.743,
+    "day": "Monday",
+    "month": "May"
+  },
+  {
+    "time": "2023-06-30",
+    "avg_power_demand_kW": 2.6992098379629628,
+    "energy_demand_kWh": 1943.4310833333334,
+    "peak_power_kW": 24.051,
+    "day": "Thursday",
+    "month": "June"
+  },
+  {
+    "time": "2023-07-31",
+    "avg_power_demand_kW": 2.5803465501792116,
+    "energy_demand_kWh": 1919.7778333333333,
+    "peak_power_kW": 26.865,
+    "day": "Saturday",
+    "month": "July"
+  },
+  {
+    "time": "2023-08-31",
+    "avg_power_demand_kW": 2.843710237455197,
+    "energy_demand_kWh": 2115.7204166666666,
+    "peak_power_kW": 24.672,
+    "day": "Tuesday",
+    "month": "August"
+  },
+  {
+    "time": "2023-09-30",
+    "avg_power_demand_kW": 4.189287847222222,
+    "energy_demand_kWh": 3016.28725,
+    "peak_power_kW": 33.325,
+    "day": "Friday",
+    "month": "September"
+  },
+  {
+    "time": "2023-10-31",
+    "avg_power_demand_kW": 3.8369476926523296,
+    "energy_demand_kWh": 2854.689083333333,
+    "peak_power_kW": 31.144,
+    "day": "Sunday",
+    "month": "October"
+  },
+  {
+    "time": "2023-11-30",
+    "avg_power_demand_kW": 3.854854861111111,
+    "energy_demand_kWh": 2775.4955,
+    "peak_power_kW": 34.47,
+    "day": "Wednesday",
+    "month": "November"
+  },
+  {
+    "time": "2023-12-31",
+    "avg_power_demand_kW": 2.442056227598566,
+    "energy_demand_kWh": 1816.8898333333334,
+    "peak_power_kW": 36.111,
+    "day": "Friday",
+    "month": "December"
+  },
+  {
+    "time": "2024-01-31",
+    "avg_power_demand_kW": 3.8029031137992835,
+    "energy_demand_kWh": 2829.359916666667,
+    "peak_power_kW": 29.351,
+    "day": "Monday",
+    "month": "January"
+  },
+  {
+    "time": "2024-02-29",
+    "avg_power_demand_kW": 4.020878232758621,
+    "energy_demand_kWh": 2798.53125,
+    "peak_power_kW": 38.25,
+    "day": "Thursday",
+    "month": "February"
+  },
+  {
+    "time": "2024-03-31",
+    "avg_power_demand_kW": 3.3376683467741937,
+    "energy_demand_kWh": 2483.22525,
+    "peak_power_kW": 30.401,
+    "day": "Friday",
+    "month": "March"
+  },
+  {
+    "time": "2024-04-30",
+    "avg_power_demand_kW": 4.195943865740741,
+    "energy_demand_kWh": 3021.079583333333,
+    "peak_power_kW": 32.287,
+    "day": "Monday",
+    "month": "April"
+  },
+  {
+    "time": "2024-05-31",
+    "avg_power_demand_kW": 2.6849240596167494,
+    "energy_demand_kWh": 315.25483333333335,
+    "peak_power_kW": 17.754,
+    "day": "Wednesday",
+    "month": "May"
+  }
+]

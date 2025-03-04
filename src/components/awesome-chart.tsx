@@ -1,6 +1,6 @@
 "use client";
 
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from "recharts";
 
 import {
   Card,
@@ -26,23 +26,28 @@ export type ChartUnit =
   | "avg_power_demand_kW"
   | "peak_power_kW";
 
-const defaultDateRange = {
-  from: new Date(2022, 0, 20),
-  to: new Date(2022, 2, 20),
+export type ChartGranularity = "hourly" | "daily" | "monthly";
+
+const defaultDateRanges: Record<ChartGranularity, DateRange> = {
+  hourly: { from: new Date(2022, 0, 1), to: new Date(2022, 0, 15) },
+  daily: { from: new Date(2022, 0, 1), to: new Date(2022, 0, 31) },
+  monthly: { from: new Date(2021, 0, 1), to: new Date(2022, 11, 1) },
 };
 
 const chartConfig = {} satisfies ChartConfig;
 
 export function AwesomeChart() {
-  const [selectedDateRange, setSelectedDateRange] =
-    useState<DateRange>(defaultDateRange);
   const [selectedUnit, setSelectedUnit] =
     useState<ChartUnit>("energy_demand_kWh");
+  const [selectedGranularity, setSelectedGranularity] =
+    useState<ChartGranularity>("hourly");
+  const [selectedDateRange, setSelectedDateRange] =
+    useState<DateRange>(defaultDateRanges[selectedGranularity]);
 
   const chartData = GetChartData({
     startDate: selectedDateRange.from as Date,
     endDate: selectedDateRange.to as Date,
-    granularity: "hourly",
+    granularity: selectedGranularity,
   });
 
   return (
@@ -56,19 +61,17 @@ export function AwesomeChart() {
         </CardHeader>
         <CardContent>
           <ChartContainer config={chartConfig}>
-            <AreaChart
-              accessibilityLayer
-              data={chartData}
-            >
+            <AreaChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
-              <XAxis
-                dataKey="time"
-              />
+              <XAxis dataKey="time" />
+              <YAxis dataKey={selectedUnit} domain={['auto', 'auto']} />
               <ChartTooltip
                 cursor={false}
                 content={<ChartTooltipContent indicator="dot" hideLabel />}
               />
               <Area dataKey={selectedUnit} />
+              <Area dataKey="time" />
+              <Area dataKey="day" />
             </AreaChart>
           </ChartContainer>
         </CardContent>
@@ -79,6 +82,8 @@ export function AwesomeChart() {
         date={selectedDateRange}
         onUnitSelect={setSelectedUnit}
         unit={selectedUnit}
+        onGranularitySelect={setSelectedGranularity}
+        granularity={selectedGranularity}
       />
     </>
   );
