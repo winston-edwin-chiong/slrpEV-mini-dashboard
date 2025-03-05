@@ -1,9 +1,7 @@
-import { AwesomeChart } from "@/components/awesome-chart";
-
-export default function Charts() {
+export default function Home() {
   return (
     <>
-      <AwesomeChart />
+      <div>Home statistics!</div>
     </>
   );
 }

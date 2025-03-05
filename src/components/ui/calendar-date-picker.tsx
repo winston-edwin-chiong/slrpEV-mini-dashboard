@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
+/* eslint-disable react-hooks/exhaustive-deps */
 // src/components/calendar-date-picker.tsx
 
 "use client";
@@ -259,7 +261,7 @@ export const CalendarDatePicker = React.forwardRef<
       }
     };
 
-    const today = new Date();
+    const today = new Date("2024-05-05"); // Fix today as the last data point
 
     const years = Array.from(
       { length: yearsRange + 1 },
@@ -306,7 +308,7 @@ export const CalendarDatePicker = React.forwardRef<
       setHighlightedPart(null);
     };
 
-    const handleWheel = (event: React.WheelEvent, part: string) => {
+    const handleWheel = (event: React.WheelEvent) => {
       event.preventDefault();
       setSelectedRange(null);
       if (highlightedPart === "firstDay") {
@@ -553,7 +555,7 @@ export const CalendarDatePicker = React.forwardRef<
               onEscapeKeyDown={handleClose}
               style={{
                 maxHeight: "var(--radix-popover-content-available-height)",
-                overflowY: "scroll",
+                overflowY: "auto",
               }}
             >
               <div className="flex">
@@ -580,6 +582,7 @@ export const CalendarDatePicker = React.forwardRef<
                         {label}
                       </Button>
                     ))}
+                    <div className="text-xs tracking-tighter">{`*Relative to the last day of data.`}</div>
                   </div>
                 )}
                 <div className="flex flex-col">

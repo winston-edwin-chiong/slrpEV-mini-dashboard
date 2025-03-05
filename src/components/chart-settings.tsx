@@ -1,62 +1,46 @@
 "use client";
 
 import { DateRange } from "react-day-picker";
-import { DatePickerWithRange } from "./ui/date-picker-with-range";
 import { UnitsSelect } from "./ui/units-select";
-import { ChartGranularity, ChartUnit } from "./awesome-chart";
+import { ChartGranularity, ChartType, ChartUnit } from "./awesome-chart";
 import { GranularitySelect } from "./ui/granularity-select";
-import { Button } from "./ui/button";
-import { DatePicker } from "./ui/datepicker";
 import { CalendarDatePicker } from "./ui/calendar-date-picker";
+import { ChartSelect } from "./ui/chart-select";
+import React from "react";
+import { cn } from "@/lib/utils";
 
 export default function ChartSettings({
   onDateSelect,
   onUnitSelect,
   onGranularitySelect,
+  onChartSelect,
   date,
   unit,
   granularity,
-  onFromDateSelect,
-  onToDateSelect,
-  fromDate,
-  toDate
+  chart,
+  className
 }: {
   onDateSelect: (dateRange: DateRange) => void;
   onUnitSelect: (unit: ChartUnit) => void;
   onGranularitySelect: (unit: ChartGranularity) => void;
+  onChartSelect: (chart: ChartType) => void;
   date: DateRange;
   unit: ChartUnit;
   granularity: ChartGranularity;
-    onFromDateSelect: (date: Date) => void;
-    onToDateSelect: (date: Date) => void;
-    fromDate: Date;
-    toDate: Date;
+  chart: ChartType;
+  className?: string;
 }) {
   return (
-    <div>
+    <div className={cn(className, "flex flex-col gap-4")}>
+      <div className="flex gap-4">
+        <ChartSelect chart={chart} onChartSelect={onChartSelect} />
+        <UnitsSelect onUnitSelect={onUnitSelect} unit={unit} />
+        <GranularitySelect
+          onGranularitySelect={onGranularitySelect}
+          granularity={granularity}
+        />
+      </div>
       <CalendarDatePicker onDateSelect={onDateSelect} date={date} variant={"outline"}/>
-      <DatePicker setDate={onFromDateSelect} date={fromDate} />
-      <DatePicker setDate={onToDateSelect} date={toDate} />
-      <DatePickerWithRange onDateSelect={onDateSelect} date={date} />
-      <UnitsSelect onUnitSelect={onUnitSelect} unit={unit} />
-      <GranularitySelect
-        onGranularitySelect={onGranularitySelect}
-        granularity={granularity}
-      />
-      {["2020", "2021", "2022", "2023", "2024"].map((year) => (
-        <Button
-          onClick={() =>
-            onDateSelect({
-              from: new Date(`${year}-01-01`),
-              to: new Date(`${year}-12-31`),
-            })
-          }
-          key={year}
-          variant={"outline"}
-        >
-          {year}
-        </Button>
-      ))}
     </div>
   );
 }

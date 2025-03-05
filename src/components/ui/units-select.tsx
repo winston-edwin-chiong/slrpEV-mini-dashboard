@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { ChartUnit } from "../awesome-chart";
+import { ChartUnit, readableChartUnits } from "../awesome-chart";
 
 export function UnitsSelect({
   unit,
@@ -26,13 +26,11 @@ export function UnitsSelect({
       <SelectContent>
         <SelectGroup>
           <SelectLabel>Units</SelectLabel>
-          <SelectItem value="avg_power_demand_kW">
-            {"Avg. Power Demand (kw)"}
-          </SelectItem>
-          <SelectItem value="energy_demand_kWh">
-            {"Energy Demand (kwH)"}
-          </SelectItem>
-          <SelectItem value="peak_power_kW">{"Peak Power (kW)"}</SelectItem>
+          {Object.entries(readableChartUnits).map(([unit, label]) => (
+            <SelectItem value={unit} key={unit}>
+              {label}
+            </SelectItem>
+          ))}
         </SelectGroup>
       </SelectContent>
     </Select>
