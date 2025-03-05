@@ -15,8 +15,8 @@ export function GranularitySelect({
   granularity,
   onGranularitySelect,
 }: {
-    granularity: ChartGranularity;
-    onGranularitySelect: (unit: ChartGranularity) => void;
+  granularity: ChartGranularity;
+  onGranularitySelect: (unit: ChartGranularity) => void;
 }) {
   return (
     <Select onValueChange={onGranularitySelect} value={granularity}>
@@ -27,8 +27,8 @@ export function GranularitySelect({
         <SelectGroup>
           <SelectLabel>Granularity</SelectLabel>
           <SelectItem value="monthly">{"Monthly"}</SelectItem>
-            <SelectItem value="daily">{"Daily"}</SelectItem>
-            <SelectItem value="hourly">{"Hourly"}</SelectItem>
+          <SelectItem value="daily">{"Daily"}</SelectItem>
+          <SelectItem value="hourly">{"Hourly"}</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

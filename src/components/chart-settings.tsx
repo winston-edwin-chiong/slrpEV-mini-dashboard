@@ -6,6 +6,8 @@ import { UnitsSelect } from "./ui/units-select";
 import { ChartGranularity, ChartUnit } from "./awesome-chart";
 import { GranularitySelect } from "./ui/granularity-select";
 import { Button } from "./ui/button";
+import { DatePicker } from "./ui/datepicker";
+import { CalendarDatePicker } from "./ui/calendar-date-picker";
 
 export default function ChartSettings({
   onDateSelect,
@@ -14,6 +16,10 @@ export default function ChartSettings({
   date,
   unit,
   granularity,
+  onFromDateSelect,
+  onToDateSelect,
+  fromDate,
+  toDate
 }: {
   onDateSelect: (dateRange: DateRange) => void;
   onUnitSelect: (unit: ChartUnit) => void;
@@ -21,9 +27,16 @@ export default function ChartSettings({
   date: DateRange;
   unit: ChartUnit;
   granularity: ChartGranularity;
+    onFromDateSelect: (date: Date) => void;
+    onToDateSelect: (date: Date) => void;
+    fromDate: Date;
+    toDate: Date;
 }) {
   return (
     <div>
+      <CalendarDatePicker onDateSelect={onDateSelect} date={date} variant={"outline"}/>
+      <DatePicker setDate={onFromDateSelect} date={fromDate} />
+      <DatePicker setDate={onToDateSelect} date={toDate} />
       <DatePickerWithRange onDateSelect={onDateSelect} date={date} />
       <UnitsSelect onUnitSelect={onUnitSelect} unit={unit} />
       <GranularitySelect

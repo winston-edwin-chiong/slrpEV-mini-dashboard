@@ -43,6 +43,8 @@ export function AwesomeChart() {
     useState<ChartGranularity>("hourly");
   const [selectedDateRange, setSelectedDateRange] =
     useState<DateRange>(defaultDateRanges[selectedGranularity]);
+  const [fromDate, setFromDate] = useState<Date>(defaultDateRanges[selectedGranularity].from as Date);
+  const [toDate, setToDate] = useState<Date>(defaultDateRanges[selectedGranularity].to as Date);
 
   const chartData = GetChartData({
     startDate: selectedDateRange.from as Date,
@@ -64,7 +66,7 @@ export function AwesomeChart() {
             <AreaChart accessibilityLayer data={chartData}>
               <CartesianGrid vertical={false} />
               <XAxis dataKey="time" />
-              <YAxis dataKey={selectedUnit} domain={['auto', 'auto']} />
+              <YAxis dataKey={selectedUnit} />
               <ChartTooltip
                 cursor={false}
                 content={<ChartTooltipContent indicator="dot" hideLabel />}
@@ -84,6 +86,10 @@ export function AwesomeChart() {
         unit={selectedUnit}
         onGranularitySelect={setSelectedGranularity}
         granularity={selectedGranularity}
+        onFromDateSelect={setFromDate}
+        onToDateSelect={setToDate}
+        fromDate={fromDate}
+        toDate={toDate}
       />
     </>
   );
