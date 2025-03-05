@@ -32,7 +32,7 @@ export type ChartType = "demand" | "coming soon!";
 
 const defaultDateRanges: Record<ChartGranularity, DateRange> = {
   hourly: { from: new Date(2024, 4, 1), to: new Date(2024, 4, 5) },
-  daily: { from: new Date(2024, 3, 15), to: new Date(2024, 4, 5) },
+  daily: { from: new Date(2024, 3, 14), to: new Date(2024, 4, 5) },
   monthly: { from: new Date(2022, 4, 5), to: new Date(2024, 4, 5) },
 };
 
@@ -60,11 +60,30 @@ export function AwesomeChart() {
     granularity: selectedGranularity,
   });
 
+  const handleSelectDateRange = (dateRange: DateRange) => {
+    const oneDay = 24 * 60 * 60 * 1000;
+    const oneYear = 365 * oneDay;
+    if (
+      dateRange.to &&
+      dateRange.from &&
+      Math.abs(dateRange.to.getTime() - dateRange.from.getTime()) < oneDay
+    ) {
+      setSelectedGranularity("hourly");
+    } else if (
+      dateRange.to &&
+      dateRange.from &&
+      Math.abs(dateRange.to.getTime() - dateRange.from.getTime()) < oneYear
+    ) {
+      setSelectedGranularity("monthly");
+    }
+    setSelectedDateRange(dateRange);
+  };
+
   return (
     <div className="flex flex-col mx-4 mb-10 sm:mx-0">
       <div>
         <ChartSettings
-          onDateSelect={setSelectedDateRange}
+          onDateSelect={handleSelectDateRange}
           date={selectedDateRange}
           onUnitSelect={setSelectedUnit}
           unit={selectedUnit}
