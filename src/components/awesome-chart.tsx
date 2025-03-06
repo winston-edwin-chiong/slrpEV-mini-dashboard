@@ -97,9 +97,8 @@ export function AwesomeChart() {
       <div>
         <Card className="py-4 md:py6 shadow-2xl">
           <CardHeader>
-            <CardTitle>Area Chart - Linear</CardTitle>
+            <CardTitle>Demand</CardTitle>
             <CardDescription>
-              Showing total visitors for the last 6 months
             </CardDescription>
           </CardHeader>
           <CardContent className="m-0">
