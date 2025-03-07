@@ -32,13 +32,13 @@ export default function ChartSettings({
 }) {
   return (
     <div className={cn(className, "flex flex-col gap-4")}>
-      <div className="flex gap-4">
-        <ChartSelect chart={chart} onChartSelect={onChartSelect} />
-        <UnitsSelect onUnitSelect={onUnitSelect} unit={unit} />
+      <div className="flex flex-wrap gap-4 justify-center">
         <GranularitySelect
           onGranularitySelect={onGranularitySelect}
           granularity={granularity}
         />
+        <ChartSelect chart={chart} onChartSelect={onChartSelect} />
+        <UnitsSelect onUnitSelect={onUnitSelect} unit={unit} />
       </div>
       <CalendarDatePicker onDateSelect={onDateSelect} date={date} variant={"outline"}/>
     </div>

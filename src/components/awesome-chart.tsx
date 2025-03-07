@@ -42,7 +42,26 @@ export const readableChartUnits: Record<ChartUnit, string> = {
   peak_power_kW: "Peak Power (kW)",
 };
 
-const chartConfig = {} satisfies ChartConfig;
+const chartConfig = {
+  energy_demand_kWh: {
+    label: "Energy Demand (kWh)",
+    color: "#FFC107",
+  },
+  avg_power_demand_kW: {
+    label: "Avg. Power Demand (kW)",
+    color: "#FF5722",
+  },
+  peak_power_kW: {
+    label: "Peak Power (kW)",
+    color: "#2196F3",
+  },
+  time : {
+    label: "Time",
+  },
+  day : {
+    label: "Day",
+  },
+} satisfies ChartConfig
 
 export function AwesomeChart() {
   const [selectedUnit, setSelectedUnit] =
@@ -80,7 +99,7 @@ export function AwesomeChart() {
   };
 
   return (
-    <div className="flex flex-col mx-4 mb-10 sm:mx-0">
+    <div className="flex flex-col mx-10 sm:mx-0">
       <div>
         <ChartSettings
           onDateSelect={handleSelectDateRange}
@@ -91,19 +110,18 @@ export function AwesomeChart() {
           granularity={selectedGranularity}
           onChartSelect={setSelectedChart}
           chart={selectedChart}
-          className="mx-10 my-5 p-4"
+          className="mx-2 md:mx-10 my-5 p-4"
         />
       </div>
       <div>
-        <Card className="py-4 md:py6 shadow-2xl">
+        <Card className="bg-primary-foreground dark:bg-primary-foreground">
           <CardHeader>
             <CardTitle>Demand</CardTitle>
-            <CardDescription>
-            </CardDescription>
+            <CardDescription></CardDescription>
           </CardHeader>
-          <CardContent className="m-0">
-            <ChartContainer config={chartConfig}>
-              <AreaChart accessibilityLayer data={chartData}>
+          <CardContent className="">
+            <ChartContainer config={chartConfig} className="w-full h-100">
+              <AreaChart accessibilityLayer data={chartData} className="">
                 <CartesianGrid />
                 <XAxis
                   dataKey="time"
@@ -133,9 +151,9 @@ export function AwesomeChart() {
                   cursor={false}
                   content={<ChartTooltipContent indicator="dot" hideLabel />}
                 />
-                <Area dataKey={selectedUnit} />
-                <Area dataKey="time" />
-                <Area dataKey="day" />
+                <Area dataKey={selectedUnit} fill={`var(--color-${selectedUnit})`} stroke={`var(--color-${selectedUnit})`} fillOpacity={0.35}/>
+                <Area dataKey="time" stroke={`var(--color-${selectedUnit})`} />
+                <Area dataKey="day" stroke={`var(--color-${selectedUnit})`}/>
               </AreaChart>
             </ChartContainer>
           </CardContent>

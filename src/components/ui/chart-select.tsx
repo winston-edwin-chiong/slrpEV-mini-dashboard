@@ -20,7 +20,7 @@ export function ChartSelect({
 }) {
   return (
     <Select onValueChange={(value) => value !== "coming_soon" && onChartSelect(value as ChartType)} value={chart}>
-      <SelectTrigger>
+      <SelectTrigger className="hover:bg-accent">
         <SelectValue placeholder="Select a chart!" />
       </SelectTrigger>
       <SelectContent>

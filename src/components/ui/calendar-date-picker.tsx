@@ -405,7 +405,7 @@ export const CalendarDatePicker = React.forwardRef<
           `}
         </style>
         <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
-          <PopoverTrigger asChild>
+          <PopoverTrigger asChild className="cursor-pointer">
             <Button
               id="date"
               ref={ref}

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/footer";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,9 +31,12 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
         >
-          <Header />
-          <div className="container mx-auto">
-            {children}
+          <div className="flex flex-col h-screen">
+            <Header />
+            <div className="container mx-auto flex-grow">
+              {children}
+            </div>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
