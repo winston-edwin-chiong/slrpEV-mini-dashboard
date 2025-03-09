@@ -32,7 +32,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const data = rawdata;
+const data: EVData[] = rawdata.map((item) => ({
+  ...item,
+  sch_centsPerHr: parseFloat(item.sch_centsPerHr.toString()),
+  reg_centsPerHr: parseFloat(item.reg_centsPerHr.toString()),
+  vehicle_model: item.vehicle_model.toString(),
+}));
 
 export type EVData = {
   sch_centsPerHr: number;
