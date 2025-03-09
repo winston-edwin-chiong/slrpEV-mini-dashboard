@@ -14,12 +14,12 @@ import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
-  ChartTooltipContent,
 } from "@/components/ui/chart";
 import { GetChartData } from "@/lib/get-chart-data";
 import ChartSettings from "./chart-settings";
 import { useState } from "react";
 import { DateRange } from "react-day-picker";
+import { TooltipProps } from "recharts";
 
 export type ChartUnit =
   | "energy_demand_kWh"
@@ -45,23 +45,20 @@ export const readableChartUnits: Record<ChartUnit, string> = {
 const chartConfig = {
   energy_demand_kWh: {
     label: "Energy Demand (kWh)",
-    color: "#FFC107",
   },
   avg_power_demand_kW: {
     label: "Avg. Power Demand (kW)",
-    color: "#FF5722",
   },
   peak_power_kW: {
     label: "Peak Power (kW)",
-    color: "#2196F3",
   },
-  time : {
+  time: {
     label: "Time",
   },
-  day : {
+  day: {
     label: "Day",
   },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 export function AwesomeChart() {
   const [selectedUnit, setSelectedUnit] =
@@ -77,32 +74,14 @@ export function AwesomeChart() {
     startDate: selectedDateRange.from as Date,
     endDate: selectedDateRange.to as Date,
     granularity: selectedGranularity,
+    chartType: selectedChart,
   });
 
-  const handleSelectDateRange = (dateRange: DateRange) => {
-    const oneDay = 24 * 60 * 60 * 1000;
-    const oneYear = 365 * oneDay;
-    if (
-      dateRange.to &&
-      dateRange.from &&
-      Math.abs(dateRange.to.getTime() - dateRange.from.getTime()) < oneDay
-    ) {
-      setSelectedGranularity("hourly");
-    } else if (
-      dateRange.to &&
-      dateRange.from &&
-      Math.abs(dateRange.to.getTime() - dateRange.from.getTime()) < oneYear
-    ) {
-      setSelectedGranularity("monthly");
-    }
-    setSelectedDateRange(dateRange);
-  };
-
   return (
-    <div className="flex flex-col mx-10 sm:mx-0">
+    <>
       <div>
         <ChartSettings
-          onDateSelect={handleSelectDateRange}
+          onDateSelect={setSelectedDateRange}
           date={selectedDateRange}
           onUnitSelect={setSelectedUnit}
           unit={selectedUnit}
@@ -110,17 +89,17 @@ export function AwesomeChart() {
           granularity={selectedGranularity}
           onChartSelect={setSelectedChart}
           chart={selectedChart}
-          className="mx-2 md:mx-10 my-5 p-4"
+          className="mr-2 md:mr-10 my-5 p-4"
         />
       </div>
       <div>
-        <Card className="bg-primary-foreground dark:bg-primary-foreground">
+        <Card className="bg-primary-foreground">
           <CardHeader>
-            <CardTitle>Demand</CardTitle>
+            <CardTitle className="font-light text-lg">{`${selectedGranularity.toLocaleUpperCase()} ${selectedChart.toLocaleUpperCase()}`}</CardTitle>
             <CardDescription></CardDescription>
           </CardHeader>
           <CardContent className="">
-            <ChartContainer config={chartConfig} className="w-full h-100">
+            <ChartContainer config={chartConfig} className="w-full max-h-100">
               <AreaChart accessibilityLayer data={chartData} className="">
                 <CartesianGrid />
                 <XAxis
@@ -143,23 +122,65 @@ export function AwesomeChart() {
                   label={{
                     value: readableChartUnits[selectedUnit],
                     angle: -90,
-                    dx: -10,
+                    dx: -20,
                   }}
                   padding={{ top: 20 }}
                 />
-                <ChartTooltip
-                  cursor={false}
-                  content={<ChartTooltipContent indicator="dot" hideLabel />}
+                <ChartTooltip cursor={true} content={CustomTooltip} />
+                <Area
+                  dataKey={selectedUnit}
+                  fill={`var(--chart-1)`}
+                  stroke={`var(--chart-1)`}
+                  fillOpacity={0.35}
                 />
-                <Area dataKey={selectedUnit} fill={`var(--color-${selectedUnit})`} stroke={`var(--color-${selectedUnit})`} fillOpacity={0.35}/>
-                <Area dataKey="time" stroke={`var(--color-${selectedUnit})`} />
-                <Area dataKey="day" stroke={`var(--color-${selectedUnit})`}/>
+                <Area dataKey="day" stroke={`oklch(0, 0, 0, 0)`} />
               </AreaChart>
             </ChartContainer>
           </CardContent>
           <CardFooter></CardFooter>
         </Card>
       </div>
-    </div>
+    </>
   );
+}
+
+const CustomTooltip = ({
+  active,
+  payload,
+  label,
+}: TooltipProps<number, string>) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-primary-foreground p-3 border border-primary-accent">
+        <p className="font-semibold underline underline-offset-2 decoration-blue-600">
+          {label}
+        </p>
+        {payload.map((entry, index) => (
+          <p key={index} className="my-0.5">
+            <span className="capitalize">
+              {`${
+                readableChartUnits[entry.name as ChartUnit] ??
+                (entry.name as string)
+              }: `}
+            </span>
+            <span className="font-semibold">{`${(entry.value as number).toLocaleString()}`}</span>
+          </p>
+        ))}
+      </div>
+    );
+  }
+  return null;
+};
+
+export type EVData = {
+  sch_centsPerHr: number //
+  vehicle_model: string //
+  Duration: string //
+  startChargeTime: string //
+  choice: string //
+  cumEnergy_Wh: number  //
+  reg_centsPerHr: number //
+  energyReq_Wh: string //
+  finishChargeTime: string //
+  Overstay: string //
 }

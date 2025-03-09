@@ -20,7 +20,7 @@ export function UnitsSelect({
 }) {
   return (
     <Select onValueChange={onUnitSelect} value={unit}>
-      <SelectTrigger>
+      <SelectTrigger className="hover:bg-accent">
         <SelectValue placeholder="Select a unit!" />
       </SelectTrigger>
       <SelectContent>

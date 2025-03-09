@@ -20,7 +20,7 @@ export function GranularitySelect({
 }) {
   return (
     <Select onValueChange={onGranularitySelect} value={granularity}>
-      <SelectTrigger>
+      <SelectTrigger className="hover:bg-accent">
         <SelectValue placeholder="Select a granularity!" />
       </SelectTrigger>
       <SelectContent>

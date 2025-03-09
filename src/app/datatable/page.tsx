@@ -1,6 +1,9 @@
+import { DataTable } from "@/components/datatable";
 
 export default function Data() {
     return (
-      <div>Data...</div>
+      <div>
+        <DataTable />
+      </div>
     );
 }
