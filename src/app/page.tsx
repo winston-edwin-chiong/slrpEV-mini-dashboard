@@ -34,9 +34,9 @@ export default function Home() {
           />
           <HomeCard
             icon={<Clock className="w-10 h-10" strokeWidth={0.75} />}
-            title="charging time of"
+            title="total charging time of"
             value="740+"
-            footer="total days"
+            footer="days"
           />
           <HomeCard
             icon={<Plug className="w-10 h-10" strokeWidth={0.75} />}
@@ -60,7 +60,7 @@ export default function Home() {
       </div>
       <Link href="/charts" className="my-2 sm:my-4 transition-transform duration-300">
         <span className="group inline-flex hover:underline decoration-1 underline-offset-2 decoration-blue-600 transition-transform duration-300">
-          {"See the charts!"}
+          {"See the data!"}
           <ChevronRight className="transition-transform duration-300 group-hover:translate-x-1"/>
         </span>
       </Link>

@@ -547,8 +547,8 @@ export const CalendarDatePicker = React.forwardRef<
           </PopoverTrigger>
           {isPopoverOpen && (
             <PopoverContent
-              className="w-auto"
-              align="center"
+              className="w-auto sm:static sm:right-0 md:relative md:right-5 lg:static lg:right-0"
+              align="start"
               avoidCollisions={false}
               onInteractOutside={handleClose}
               onEscapeKeyDown={handleClose}
@@ -559,7 +559,7 @@ export const CalendarDatePicker = React.forwardRef<
             >
               <div className="flex">
                 {numberOfMonths === 2 && (
-                  <div className="hidden md:flex flex-col gap-1 pr-4 text-left border-r border-foreground/10">
+                  <div className="hidden md:flex max-w-min lg:max-w-none flex-col gap-1 pr-4 text-left border-r border-foreground/10">
                     {dateRanges.map(({ label, start, end }) => (
                       <Button
                         key={label}
